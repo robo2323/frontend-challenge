@@ -121,7 +121,7 @@ Do not worry about the formatting of the chart, the standard formatting will be 
     When I am on the "My Evaluation" evaluation page
     Then I should see "My Evaluation"
 
-##### Scenario 1: Show evaluation pulses
+##### Scenario 2: Show evaluation pulses
 
     Given there is an evaluation "My Evaluation"
     And it has a related pulse of the type "Primitive"
@@ -137,6 +137,35 @@ You can view an evaluation in the API by making a `GET` request to
 
 You can include the pulses for an evaluation by appending `?include=pulses` to
 your request.
+
+#### Plot Points
+
+To plot the Pulse you need to create three plot lines:
+
+```
+[
+  {
+    x: pulse.times,
+    y: pulse.x_amplitudes,
+    name: "X",
+    type: "scatter",
+  },
+  {
+    x: pulse.times,
+    y: pulse.y_amplitudes,
+    name: "Y",
+    type: "scatter",
+  },
+  {
+    x: pulse.times,
+    y: pulse.z_amplitudes,
+    name: "Z",
+    type: "scatter",
+  }
+]
+```
+
+#### API Endpoint
 
 ## Additional Information
 
